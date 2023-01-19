@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="VerificadorPrecios.Views.Popups.Categoria_Picker"
+             xmlns:vm="clr-namespace:VerificadorPrecios.ViewModels"
+                Size="350,750" BackgroundColor="{StaticResource Page-bg}" >
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                 Padding="20">
+
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton x:Name="btnBuscar" BackgroundColor="Transparent" CornerRadius="10" 
+                         Clicked="btnBuscar_Clicked"  Source="search" Grid.Row="0" Grid.ColumnSpan="2"
+                    Padding="10,0,0,0" Margin="0,0,0,10" HeightRequest="30" HorizontalOptions="End"
+                         BorderColor="{StaticResource Secondary}" BorderWidth="1" Visual="Material"></ImageButton>
+            <Entry x:Name="txtBuscar" Placeholder="Ingrese la categoria" Margin="0,10,50,0" Grid.Row="0" Grid.ColumnSpan="2" />
+
+        </Grid>
+
+
+        <ListView BackgroundColor="Transparent" HeightRequest="450"
+                        RefreshControlColor="Transparent" x:Name="lstCategorias"
+                        ItemSelected="lstCategorias_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <StackLayout>
+                            <Label Text="{Binding catName}" TextColor="Black"></Label>
+                            <Label Text="{Binding id}" TextColor="Black" IsVisible="false"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+            <Button Text="Cerrar" Clicked="Button_Clicked"  BackgroundColor="Transparent" 
+                    BorderColor="{StaticResource Secondary}" BorderWidth="1" TextColor="{StaticResource Secondary}"></Button>
+        </StackLayout>
+
+    </StackLayout>
+
+</xct:Popup>

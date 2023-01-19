@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VerificadorPrecios.Views.RegistrarCategoria"
+             xmlns:vm="clr-namespace:VerificadorPrecios.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:RegistrarCategoriaViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar" Clicked="ToolbarItem_Clicked" Order="Primary" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+
+            <ScrollView Padding="30,30">
+                <Grid RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Nombre de la categoria" Grid.Row="0" ></Label>
+                    <Entry x:Name="txtNombre" Margin="0,10,0,0" HorizontalTextAlignment="Center" Grid.Row="0"></Entry>
+
+                    <Editor x:Name="txtComentarios" Placeholder="Comentarios" Grid.Row="1" HeightRequest="100"></Editor>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

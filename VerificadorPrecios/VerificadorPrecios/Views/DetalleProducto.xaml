@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="VerificadorPrecios.Views.DetalleProducto"
+            xmlns:vm="clr-namespace:VerificadorPrecios.ViewModels"
+                Size="350,750" BackgroundColor="{StaticResource Page-bg}"  >
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <StackLayout BackgroundColor="{StaticResource Secondary}">
+            <Label Text="Informacion del producto." FontSize="Large" FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                   TextColor="White" Padding="0,24"></Label>
+        </StackLayout>
+
+        <ScrollView Padding="30,30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="lblid" Grid.Row="0" Grid.Column="0" IsVisible="false"
+                   FontAttributes="Bold"></Label>
+
+                <Image x:Name="imgproducto" Grid.Row="0" Grid.ColumnSpan="2" WidthRequest="150"
+                       HeightRequest="200"
+                       VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,10,0"></Image>
+
+                <Label Text="Titulo de producto: " Grid.Row="1" Grid.Column="0"
+                   FontAttributes="Bold"></Label>
+                <Entry x:Name="txttitulo" Grid.Row="1" Grid.Column="1"></Entry>
+
+
+                <Label Text="Codigo de barras: " FontAttributes="Bold" Grid.Row="2" Grid.ColumnSpan="2"></Label>
+                <ImageButton x:Name="btnScan" BackgroundColor="Transparent" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="2" xct:VisualFeedbackEffect.FeedbackColor="Gray" 
+                                 BorderWidth="1" Source="barcode" Padding="10,0,0,0" Margin="0,0,0,10" HeightRequest="30"
+                                 HorizontalOptions="End" WidthRequest="60" Clicked="btnScan_Clicked"></ImageButton>
+                <Entry x:Name="txtcodigobarras" Margin="0,10,50,0" HorizontalTextAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2"></Entry>
+
+
+                <Label Text="Detalle: " Grid.Row="3" Grid.Column="0"
+                   FontAttributes="Bold"></Label>
+                <Entry x:Name="txtdetalle" Grid.Row="3" Grid.Column="1"></Entry>
+
+                <Label Text="Cantidad en inventario: " Grid.Row="4" Grid.Column="0"
+                   FontAttributes="Bold"></Label>
+                <Entry x:Name="txtinventario" Grid.Row="4" Grid.Column="1"></Entry>
+
+                <Label Text="Proveedor: " Grid.Row="5" Grid.Column="0"
+                   FontAttributes="Bold"></Label>
+                <Picker x:Name="pckProveedor" Grid.Row="5" Grid.Column="1" 
+                        ItemsSource="{Binding Proveedores}" ItemDisplayBinding="{Binding name}"></Picker>
+
+                <Label Text="Categoria: " Grid.Row="6" Grid.Column="0"
+                   FontAttributes="Bold"></Label>
+                <Picker x:Name="pckCategoria" Grid.Row="6" Grid.Column="1" 
+                        ItemsSource="{Binding Categorias}" ItemDisplayBinding="{Binding catName}"></Picker>
+
+                <Label Text="Marca: " Grid.Row="7" Grid.Column="0"
+                   FontAttributes="Bold"></Label>
+                <Picker x:Name="pckMarca" Grid.Row="7" Grid.Column="1" 
+                        ItemsSource="{Binding Marcas}" ItemDisplayBinding="{Binding name}"></Picker>
+
+                <Label Text="Costo: " FontSize="38" Grid.Row="8" Grid.Column="0" ></Label>
+                <Entry x:Name="txtcosto" FontSize="38" Grid.Row="8" Grid.Column="1"
+                       WidthRequest="150"></Entry>
+
+                <Label Text="Precio: " FontSize="38" Grid.Row="9" Grid.Column="0"></Label>
+                <Entry x:Name="txtprecio" FontSize="38" Grid.Row="9" Grid.Column="1"></Entry>
+
+                <Editor x:Name="txtComentarios" Placeholder="Comentarios del producto" Grid.Row="10" Grid.ColumnSpan="2" 
+                        Margin="0,10,0,0" HeightRequest="100"></Editor>
+                
+            </Grid>
+        </ScrollView>
+        <!-- footer-->
+        <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+            <Button x:Name="btnUpdate" Text="Actualizar" Clicked="btnUpdate_Clicked" BackgroundColor="{StaticResource Secondary}"  
+                    BorderWidth="1" TextColor="White"></Button>
+            <Button Text="Cerrar" Clicked="Button_Clicked" BackgroundColor="Transparent" 
+                    BorderColor="{StaticResource Secondary}" BorderWidth="1" TextColor="{StaticResource Secondary}"></Button>
+        </StackLayout>
+    </StackLayout>
+</xct:Popup>

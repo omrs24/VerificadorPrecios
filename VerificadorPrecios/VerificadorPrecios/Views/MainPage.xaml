@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VerificadorPrecios.Views.MainPage"
+             xmlns:vm="clr-namespace:VerificadorPrecios.ViewModels"
+             Title="{Binding Title}" BackgroundColor="{StaticResource Page-bg}" >
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel />
+    </ContentPage.BindingContext>
+
+
+    <StackLayout>
+        
+        <StackLayout Orientation="Horizontal" Padding="10,20" HorizontalOptions="Start">
+            <Button x:Name="btnAllProds" Clicked="btnAllProds_Clicked" Text="Mostrar Todos"
+                BackgroundColor="{StaticResource Secondary}" CornerRadius="10" TextColor="White">
+
+            </Button>
+
+        </StackLayout>
+        <ScrollView>
+
+            <StackLayout Padding="10,0">
+                <Grid RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Codigo de barras" Grid.Row="0"></Label>
+
+                    <Entry x:Name="txtRefence" Margin="0,10,50,0" HorizontalTextAlignment="Center" Grid.Row="0" 
+                           WidthRequest="60"></Entry>
+                    <ImageButton x:Name="btnScan" BackgroundColor="Transparent" CornerRadius="10" 
+                                 BorderWidth="1" Clicked="btnScan_Clicked" Source="barcode" Grid.Row="0"
+                                 Padding="10,0,0,0" Margin="0,0,0,10" WidthRequest="60" HorizontalOptions="End" HeightRequest="30"></ImageButton>
+                    
+                </Grid>
+
+                    <StackLayout HorizontalOptions="End">
+                    <Button x:Name="btnBuscarFolio" Text="Buscar" BackgroundColor="Transparent" WidthRequest="100" 
+                            BorderColor="{StaticResource Secondary}" BorderWidth="1" Visual="Material"
+                    CornerRadius="10" Clicked="btnBuscarFolio_Clicked" TextColor="{StaticResource Secondary}"></Button>
+                </StackLayout>
+
+                
+                <ListView BackgroundColor="Transparent" HeightRequest="450"
+                        RefreshControlColor="Transparent" x:Name="lstProds"
+                        ItemSelected="lstProds_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="150">
+                                <StackLayout Padding="15,5" HeightRequest="150"
+                                Orientation="Horizontal" Spacing="20">
+                                    <Image Source="{Binding image}" Aspect="AspectFit"
+                                        WidthRequest="60"
+                                        HeightRequest="500"
+                                        VerticalOptions="Center" />
+                                    <Label VerticalOptions="Center" 
+                                        VerticalTextAlignment="Center" 
+                                        Text="{Binding name}"
+                                        FontSize="Medium"
+                                        TextColor="Black"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+            
+            
+        </ScrollView>
+
+    </StackLayout>
+</ContentPage>

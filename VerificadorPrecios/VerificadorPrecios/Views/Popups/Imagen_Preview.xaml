@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="VerificadorPrecios.Views.Popups.Imagen_Preview"
+             xmlns:vm="clr-namespace:VerificadorPrecios.ViewModels"
+             Size="350,750">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton x:Name="btnCerrar" BackgroundColor="Transparent" CornerRadius="10" 
+                     xct:IconTintColorEffect.TintColor="Gray"
+                     Clicked="btnCerrar_Clicked"  Source="close" Grid.Row="0" Grid.Column="3"
+                    Margin="10" Padding="10" HorizontalOptions="End" HeightRequest="30" WidthRequest="30" />
+
+            <Image x:Name="ImagenPreview" Grid.Row="1" Grid.ColumnSpan="3" Aspect="AspectFit" HeightRequest="700" WidthRequest="300"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+
+        </Grid>
+    </StackLayout>
+    
+</xct:Popup>

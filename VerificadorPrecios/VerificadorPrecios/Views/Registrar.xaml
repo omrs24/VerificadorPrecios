@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VerificadorPrecios.Views.Registrar"
+            xmlns:vm="clr-namespace:VerificadorPrecios.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="InvalidStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="Red"/>  
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <vm:RegistrarViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar" Clicked="ToolbarItem_Clicked" Order="Primary" />
+        <ToolbarItem Text="Registar Proveedor" Order="Secondary"  Command="{Binding OpenRegProveedor}"/>
+        <ToolbarItem Text="Registrar Marca" Order="Secondary" Command="{Binding OpenRegMarca}"/>
+        <ToolbarItem Text="Registrar Categoria" Order="Secondary" Command="{Binding OpenRegCategoria}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+
+<!--            <Image x:Name="imgProducto" HeightRequest="150" WidthRequest="100" ></Image>-->
+            <ImageButton x:Name="imgProducto" HeightRequest="150" WidthRequest="100" Clicked="imgProducto_Clicked"
+                         BackgroundColor="Transparent"/>
+            <Label x:Name="strimgpath" IsVisible="false"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="End">
+                <ImageButton x:Name="btnSelecImagen" BackgroundColor="Transparent" CornerRadius="10" 
+                                 BorderWidth="1" Clicked="btnSelecImagen_Clicked" Source="upload" Grid.Row="0"
+                                 Padding="10,0,0,0" Margin="0,0,0,10" WidthRequest="60" HorizontalOptions="End" HeightRequest="30" />
+                <ImageButton x:Name="btnTomarImagen" BackgroundColor="Transparent" CornerRadius="10" 
+                                 BorderWidth="1" Clicked="btnTomarImagen_Clicked" Source="camera" Grid.Row="0"
+                                 Padding="10,0,0,0" Margin="0,0,0,10" WidthRequest="60" HorizontalOptions="End" HeightRequest="30"/>
+                
+            </StackLayout>
+            <Frame BorderColor="Gray" HeightRequest="3" Padding="0" Margin="0"></Frame>
+
+            <ScrollView Padding="30,30">
+                <Grid RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Nombre del producto" Grid.Row="0" ></Label>
+                    <Entry x:Name="txtTitulo" Margin="0,10,0,0" HorizontalTextAlignment="Center" Grid.Row="0">
+                        
+                    </Entry>
+
+                    <Label Text="Codigo de barras" Grid.Row="1"></Label>
+                    <ImageButton x:Name="btnScan" BackgroundColor="Transparent" CornerRadius="10" xct:VisualFeedbackEffect.FeedbackColor="Gray" 
+                                 BorderWidth="1" Source="barcode" Padding="10,0,0,0" Margin="0,0,0,10" HeightRequest="30"
+                                 Grid.Row="1" HorizontalOptions="End" WidthRequest="60" Clicked="btnScan_Clicked"></ImageButton>
+                    <Entry x:Name="txtcodigobarras" Margin="0,10,50,0" HorizontalTextAlignment="Center" Grid.Row="1" >
+                        <Entry.Behaviors>
+                            <xct:NumericValidationBehavior
+                                MaximumDecimalPlaces="0" MinimumValue="0"/>
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Text="Descripcion" Grid.Row="2"></Label>
+                    <Entry x:Name="txtdetalle" HorizontalTextAlignment="Center" Grid.Row="2" Margin="0,10,0,0" ></Entry>
+
+                    <StackLayout Grid.Row="3">
+                        <Label Text="Proveedor"></Label>
+                        <Entry x:Name="txtProveedor" HorizontalTextAlignment="Center" Margin="0,10,0,0" 
+                               Placeholder="Selecciona el proveedor" IsEnabled="False"/>
+                        <Label x:Name="lblIdProveedor" IsVisible="false" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="txtProveedorTGR_Tapped" 
+                                                  NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4">
+                        <Label Text="Marca"></Label>
+                        <Entry x:Name="txtMarca" HorizontalTextAlignment="Center" Margin="0,10,0,0"
+                               Placeholder="Selecciona la marca" IsEnabled="False"/>
+                        <Label x:Name="lblIdMarca" IsVisible="false" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="txtMarcaTGR_Tapped"
+                                                  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5">
+                        <Label Text="Categoria" Grid.Row="5"></Label>
+                        <Entry x:Name="txtCategoria" HorizontalTextAlignment="Center" Margin="0,10,0,0"
+                               Placeholder="Selecciona la categoria" IsEnabled="False"/>
+                        <Label x:Name="lblIdCategoria" IsVisible="false" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="txtCategoriaTGR_Tapped"
+                                                  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    
+
+                    <Label Text="Costo" Grid.Row="6"></Label>
+                    <Entry x:Name="txtCosto" x:DataType="x:Decimal" HorizontalTextAlignment="Center" Margin="0,10,0,0" Grid.Row="6" Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <xct:NumericValidationBehavior InvalidStyle="{StaticResource Key=InvalidStyle}" Flags="ValidateOnValueChanging"
+                                                           MaximumDecimalPlaces="2"  />
+                            <!--IsValid="{Binding CostoValid}"-->
+                        </Entry.Behaviors>
+                    </Entry>
+                    <!--<Label Text="Sólo numeros" IsVisible="{Binding CostoValid, Converter={xct:InvertedBoolConverter} }" />-->
+
+                    <Label Text="Precio" Grid.Row="7"></Label>
+                    <Entry x:Name="txtprecio" HorizontalTextAlignment="Center" Margin="0,10,0,0" Grid.Row="7" Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <xct:NumericValidationBehavior x:Name="bhprecio" InvalidStyle="{StaticResource Key=InvalidStyle}" Flags="ValidateOnValueChanging"
+                                                           MaximumDecimalPlaces="2" ></xct:NumericValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                    
+
+                    <Label Text="Cantidad" Grid.Row="8"></Label>
+                    <Entry x:Name="txtinventario" x:DataType="x:Int32" Margin="0,10,0,0" 
+                           HorizontalTextAlignment="Center" Grid.Row="8" Keyboard="Numeric"></Entry>
+                    
+                    <Editor x:Name="txtComentarios" Placeholder="Comentarios del producto" 
+                            Grid.Row="9" Margin="0,10,0,0" HeightRequest="100" ></Editor>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
