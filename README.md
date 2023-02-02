@@ -18,12 +18,12 @@ Mobile application to register products for web Point of Sale (POS). / Aplicacio
 -Update products, vendors, brands and categories information.
 -Delete products, vendors, brands and categories.
 
-##Future features
+## Future features
 -POS (Point of Sale)
   -Add to cart
   -Use a payment gateway
   
-#Dependencies
+# Dependencies
 
 -C# .net
 -Xamarin Forms 
@@ -34,6 +34,6 @@ Mobile application to register products for web Point of Sale (POS). / Aplicacio
 -ZXing net mobile forms 2.4.1
 -Acr Userdialogs 7.2.0.564
   
-#Screenshots
+# Screenshots
 
 
