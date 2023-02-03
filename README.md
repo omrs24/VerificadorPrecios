@@ -36,12 +36,12 @@ Mobile application to register products for web Point of Sale (POS). / Aplicacio
   
 # Screenshots
 
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/Homepage_1.jpg
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/ProductDetail_2.jpg
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/Scanner_3.jpg
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterProd_4.jpg
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/Menu_5.jpg
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterVendor_6.jpg
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterBrand_7.jpg
-- https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterCat_8.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/Homepage_1.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/ProductDetail_2.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/Scanner_3.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterProd_4.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/Menu_5.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterVendor_6.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterBrand_7.jpg
+https://github.com/omrs24/VerificadorPrecios/blob/main/screenshots/RegisterCat_8.jpg
 
